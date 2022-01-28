@@ -22,7 +22,12 @@ public class BowlingGame {
         int score = 0;
         int pointer = 0;
         for (int setting = 0; setting < 10; setting++) {
-            if (isSpare(pointer)){                       //Ifall man får spärr
+            if(getsAStrike(rolls[pointer])){                                             //Ifall man får strike
+                score = score + 10 + rolls[pointer+1] + rolls[pointer+2];
+                pointer++;
+
+            }
+            else if(getsASpare(pointer)){                       //Ifall man får spärr
 
                 score = score + 10 + rolls[pointer+2];
                 pointer = pointer + 2;
@@ -40,8 +45,15 @@ public class BowlingGame {
 
         }
 
-    private boolean isSpare(int pointer) {
-        return rolls[pointer] + rolls[pointer +1]==10;
+    private boolean getsAStrike(int roll1) {
+        return roll1 == 10;
     }
+
+    private boolean getsASpare(int pointer) {
+        return rolls[pointer] + rolls[pointer +1]==10;      //Metoden för spärr
+    }
+
+
+
 }
 
