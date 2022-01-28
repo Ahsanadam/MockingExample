@@ -34,7 +34,7 @@ class BowlingGameTest {
     }
 
     @Test
-    void canBeAbleToGetAScoreOfSpareTheFirstRoundAndScoring3TheNextRound(){
+    void canBeAbleToGetAScoreOfSpareTheFirstRoundAndScoring3After(){
 
         bowlingGame.roll(5,5, 3,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0);
         assertThat(bowlingGame.score()).isEqualTo(16);
@@ -42,13 +42,19 @@ class BowlingGameTest {
     }
 
     @Test
-    void canBeAbleToScoreAStrikeTheFirstRoundAndScoring3TheNextRoundFollowedBy3AfterThat(){
+    void canBeAbleToScoreAStrikeTheFirstRoundAndThenScoring3FollowedBy3AfterThat(){
 
         bowlingGame.roll(10, 3,3, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0);
         assertThat(bowlingGame.score()).isEqualTo(22);
 
     }
 
+    @Test
+    void canBeAbleToScoreAStrikeEveryRound(){
+        bowlingGame.roll(10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
+        assertThat(bowlingGame.score()).isEqualTo(300);
+
+    }
 
 
 }
