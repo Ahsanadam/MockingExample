@@ -12,4 +12,10 @@ class BowlingGameTest {
 
     }
 
+    @Test
+    void canBeAbleToRollABowlingBall(){
+        BowlingGame bowlingGame = new BowlingGame();
+        bowlingGame.roll(0);
+    }
+
 }
