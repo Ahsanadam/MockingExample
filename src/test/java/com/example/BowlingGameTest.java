@@ -19,7 +19,7 @@ class BowlingGameTest {
 
     @Test
     void canBeAbleToGetAGutterBowlingGame(){
-        roll(20, 0);
+        bowlingGame.roll(0,0, 0,0, 0,0, 0,0, 0,0 ,0,0, 0,0, 0,0, 0,0, 0,0 );
         assertThat(bowlingGame.score()).isEqualTo(0);
 
     }
@@ -28,17 +28,20 @@ class BowlingGameTest {
     @Test
     void canBeAbleToGetAScoreOf1EveryRound(){
 
-       roll(20,1);
+       bowlingGame.roll(1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1);
        assertThat(bowlingGame.score()).isEqualTo(20);
 
     }
 
-    private void roll(int times, int pinsBeingKnockedDown) {
-        for(int i = 0; i < times; i++){
-            bowlingGame.roll(pinsBeingKnockedDown);
+    @Test
+    void canBeAbleToGetAScoreOfSpareAndScoring3TheNextRound(){
 
-        }
+        bowlingGame.roll(5,5, 3,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0);
+        assertThat(bowlingGame.score()).isEqualTo(16);
+
     }
+
+
 
 
 }
